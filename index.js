@@ -1,17 +1,19 @@
 import chalk from 'chalk';
 import randomColor from 'randomcolor';
 
-randomColor({
-  hue: process.argv[2],
-  luminosity: process.argv[3],
-});
+const hue = process.argv[2];
+const luminosity = process.argv[3];
 
-const blockColor = randomColor();
+//console.log(chalk.hex('#123456')('our text'));
 
-const warning = chalk.hex(blockColor);
-
-console.log(
-  warning(`###############################
+if (hue && luminosity) {
+  const blockColor = randomColor({
+    luminosity: luminosity,
+    hue: hue,
+  });
+  const generateRandomCol = chalk.hex(blockColor);
+  console.log(
+    generateRandomCol(`###############################
 ###############################
 ###############################
 #####                     #####
@@ -20,4 +22,36 @@ console.log(
 ###############################
 ###############################
 ###############################`),
-);
+  );
+} else if (hue) {
+  const blockColor = randomColor({
+    count: 1,
+    hue: hue,
+  });
+  const generateRandomCol = chalk.hex(blockColor);
+  console.log(
+    generateRandomCol(`###############################
+###############################
+###############################
+#####                     #####
+#####       ${blockColor}       #####
+#####                     #####
+###############################
+###############################
+###############################`),
+  );
+} else {
+  const blockColor = randomColor();
+  const generateRandomCol = chalk.hex(blockColor);
+  console.log(
+    generateRandomCol(`###############################
+###############################
+###############################
+#####                     #####
+#####       ${blockColor}       #####
+#####                     #####
+###############################
+###############################
+###############################`),
+  );
+}
