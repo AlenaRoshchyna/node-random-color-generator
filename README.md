@@ -1,7 +1,19 @@
 # Node.js Random Color Generator
 
-Generate random colors on the command line
+## Color with the color
+
+I used chalk library to color the first block. With using chalk.red in console.log
 
 ```bash
-TODO: add the output for the progress
+###############################
+###############################
+###############################
+#####                     #####
+#####       #ff0000       #####
+#####                     #####
+###############################
+###############################
+###############################
 ```
+
+## To make colors random and prit the number of color
